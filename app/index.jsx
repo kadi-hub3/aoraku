@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 const App = () => {
   return (
     <SafeAreaView>
-      <Text>App</Text>
+      <Text>App heyyy</Text>
     </SafeAreaView>
   )
 }
