@@ -1,9 +1,9 @@
-import { View, Text, Image } from 'react-native'
+import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { Link } from 'expo-router'
-import { ScrollView } from 'react-native-gesture-handler'
 import { images } from '@/constants'
+import { StatusBar } from 'expo-status-bar'
 
 const App = () => {
   return (
@@ -36,6 +36,7 @@ const App = () => {
 
         </View>
       </ScrollView>
+      <StatusBar style='light' />
     </SafeAreaView>
   )
 }
