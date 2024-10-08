@@ -12,8 +12,21 @@ const SignIn = () => {
     password: ''
   })
 
-  const submit = () => {
+  const submit = async () => {
+    if (form.username === '' || form.email === '' || form.password === ''){
+      Alert.alert('Please fill inn all the fields !')
+    }
+    setSubmitting(true)
+    
+    try {
+      const result = await createUser(form.email, form.password, form.username)
 
+      router.replace('/home')
+    } catch(error) {
+      Alert.alert('Error', error.message)
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   return (
