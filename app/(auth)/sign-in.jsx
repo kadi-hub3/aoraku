@@ -11,6 +11,11 @@ const SignIn = () => {
     email: '',
     password: ''
   })
+
+  const submit = () => {
+
+  }
+
   return (
     <SafeAreaView className='bg-primary h-full'>
       <ScrollView>
@@ -38,7 +43,7 @@ const SignIn = () => {
             />
             <CustomButton
               title="Sign In"
-              handlePress={isSubmitting}
+              handlePress={submit}
               containerStyles="mt-7"
               isLoading={isSubmitting}
             />
@@ -55,8 +60,6 @@ const SignIn = () => {
                 </Link>
             </View>
         </View>
-    
-
       </ScrollView>
     </SafeAreaView>
   )
