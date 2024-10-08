@@ -9,7 +9,7 @@ const App = () => {
   return (
     <SafeAreaView className='bg-primary h-full'>
       <ScrollView className='h-full'>
-        <View className='w-full flex justify-center items-center h-full px-4'>
+        <View className='w-full flex justify-center items-center min-h-[85vh] px-4'>
           <Image 
             source={images.logo}
             className='w-[130px] h-[85px]'
