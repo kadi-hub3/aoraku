@@ -64,6 +64,7 @@ const SignUp = () => {
                   className='text-lg font-psemibold text-secondary'
                 >
                   Sign In
+                  //com.kadi.aoraku
                 </Link>
             </View>
         </View>
