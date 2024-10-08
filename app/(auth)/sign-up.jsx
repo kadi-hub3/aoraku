@@ -5,6 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
 import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
+import { createUser } from '../../lib/appwrite'
 const SignUp = () => {
   const [isSubmitting, setSubmitting] = useState(false)
   const [form, setForm] = useState({
@@ -14,7 +15,7 @@ const SignUp = () => {
   })
 
   const submit = () => {
-
+    createUser()
   }
 
   return (
@@ -64,7 +65,6 @@ const SignUp = () => {
                   className='text-lg font-psemibold text-secondary'
                 >
                   Sign In
-                  //com.kadi.aoraku
                 </Link>
             </View>
         </View>
