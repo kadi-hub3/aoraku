@@ -1,10 +1,9 @@
 import { View, Text, Image, ScrollView } from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { Link } from 'expo-router'
 import { images } from '@/constants'
 import { StatusBar } from 'expo-status-bar'
-
+import {CustomButton} from '@/components/CustomButton'
 const App = () => {
   return (
     <SafeAreaView className='bg-primary h-full'>
@@ -33,6 +32,14 @@ const App = () => {
               resizeMode="contain"
             />
           </View>
+          <Text className='text-sm font-pregular text-gray-100 mt-7 text-center'>
+            Where creativity meets innovation: embark on a journey of limitless exploration with Aora.
+          </Text>
+          <CustomButton
+            title='Continue with Email'
+            handlePress={()=>{}}
+            containerStyles='w-full'
+          />
 
         </View>
       </ScrollView>
