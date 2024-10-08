@@ -3,7 +3,8 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from '@/constants'
 import { StatusBar } from 'expo-status-bar'
-import {CustomButton} from '@/components/CustomButton'
+import { router } from 'expo-router'
+import  CustomButton from '@/components/CustomButton'
 const App = () => {
   return (
     <SafeAreaView className='bg-primary h-full'>
@@ -37,10 +38,10 @@ const App = () => {
           </Text>
           <CustomButton
             title='Continue with Email'
-            handlePress={()=>{}}
-            containerStyles='w-full'
+            handlePress={()=>router.push('/sign-in')}
+            containerStyles='w-full mt-5'
           />
-
+          
         </View>
       </ScrollView>
       <StatusBar style='light' />

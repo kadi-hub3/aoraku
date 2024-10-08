@@ -1,5 +1,4 @@
-import { Text } from 'react-native'
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { Text, TouchableOpacity } from 'react-native'
 
 const CustomButton = ({title, handlePress, containerStyles, textStyles, isLoading}) => {
   return (
