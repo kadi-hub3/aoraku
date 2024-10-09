@@ -5,7 +5,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
 import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
+import { getCurrentUser, signIn } from '../../lib/appwrite'
+import { useGlobalContext } from '../../context/GlobalProvider'
 const SignIn = () => {
+  const {setUser, setIsLogged} = useGlobalContext()
   const [isSubmitting, setSubmitting] = useState(false)
   const [form, setForm] = useState({
     email: '',
@@ -17,10 +20,12 @@ const SignIn = () => {
       Alert.alert('Please fill inn all the fields !')
     }
     setSubmitting(true)
-    
-    try {
-      const result = await createUser(form.email, form.password, form.username)
 
+    try {
+      await signIn(form.email, form.password);
+      const result = await getCurrentUser();
+      setUser(result)
+      setIsLogged(true)
       router.replace('/home')
     } catch(error) {
       Alert.alert('Error', error.message)
@@ -32,7 +37,7 @@ const SignIn = () => {
   return (
     <SafeAreaView className='bg-primary h-full'>
       <ScrollView>
-        <View className='w-full justify-center h-full px-4'>
+        <View className='w-full flex justify-center h-full px-4'>
             <Image 
               source={images.logo}
               resizeMode='contain'
