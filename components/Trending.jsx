@@ -1,6 +1,5 @@
-import { View, Text } from 'react-native'
-import React, { useState } from 'react'
-import { FlatList } from 'react-native-gesture-handler'
+import { View, Text, FlatList } from 'react-native'
+import { useState } from 'react'
 
 const Trending = ({posts}) => {
     const [activeItem, setActiveItem] = useState(posts[0])
