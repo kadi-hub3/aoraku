@@ -3,6 +3,9 @@ import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { FlatList } from 'react-native-gesture-handler'
 import {images} from '../../constants'
+import SearchField from '../../components/SearchField'
+import EmptyState from '../../components/EmptyState'
+
 const Home = () => {
   const [data, setData] = useState([])
   const [refreshing, setRefreshing] = useState(false)
@@ -41,7 +44,7 @@ const Home = () => {
                 />
               </View>
             </View>
-            <SearchInput />
+            <SearchField />
             <View className='w-full flex-1'>
               <Text className='text-lg font-pregular text-gray-100'>
                 Latest Videos
@@ -50,6 +53,15 @@ const Home = () => {
             </View>
           </View>
         )}
+        ListEmptyComponent={() => (
+          <EmptyState
+            title='No Videos Found'
+            subtitle='No videos created yet'
+          />
+        )}
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
+        }
       />
     </SafeAreaView>
   )
