@@ -1,7 +1,7 @@
 import { View, Text, Image } from 'react-native'
-import React from 'react'
 import { images } from '../constants'
 import { router } from 'expo-router'
+import CustomButton from './CustomButton'
 
 const EmptyState = ({title, subtitle}) => {
   return (
@@ -17,10 +17,10 @@ const EmptyState = ({title, subtitle}) => {
         <Text className='text-xl text-center font-psemibold text-white'>
             {subtitle}
         </Text>
-      <CustomButton
-            title='Back to Explore'
-            handlePress={()=>router.push('/home')}
-            containerStyles='w-full my-5'
+        <CustomButton
+                title='Back to Explore'
+                handlePress={()=>router.push('/home')}
+                containerStyles='w-full my-5'
         />
     </View>
   )

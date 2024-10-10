@@ -1,13 +1,12 @@
-import { View, Text } from 'react-native'
+import { View, Text,FlatList, Image } from 'react-native'
 import React, { useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { FlatList } from 'react-native-gesture-handler'
 import {images} from '../../constants'
 import SearchField from '../../components/SearchField'
 import EmptyState from '../../components/EmptyState'
 
 const Home = () => {
-  const [data, setData] = useState([])
+  const [data, setData] = useState()
   const [refreshing, setRefreshing] = useState(false)
   const onRefresh = () => {
     setRefreshing(true)
@@ -49,7 +48,7 @@ const Home = () => {
               <Text className='text-lg font-pregular text-gray-100'>
                 Latest Videos
               </Text>
-              <Trending posts={data} />
+              {/* <Trending posts={data} /> */}
             </View>
           </View>
         )}
@@ -59,9 +58,9 @@ const Home = () => {
             subtitle='No videos created yet'
           />
         )}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
-        }
+        // refreshControl={
+        //   <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
+        // }
       />
     </SafeAreaView>
   )
