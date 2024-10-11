@@ -1,12 +1,12 @@
 import { View, Text,FlatList, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
 import SearchField from '../../components/SearchField'
 import EmptyState from '../../components/EmptyState'
 
 const Home = () => {
-  const [data, setData] = useState()
+  const [data, setData] = useState([])
   const [refreshing, setRefreshing] = useState(false)
   const onRefresh = () => {
     setRefreshing(true)
@@ -14,6 +14,11 @@ const Home = () => {
     setRefreshing(false)
 
   }
+
+  useEffect(()=>{
+
+  })
+  
   return (
     <SafeAreaView>
       <FlatList
