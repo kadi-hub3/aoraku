@@ -1,28 +1,28 @@
-import { View, Text,FlatList, Image } from 'react-native'
+import { View, Text,FlatList, Image, RefreshControl } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
 import SearchField from '../../components/SearchField'
 import EmptyState from '../../components/EmptyState'
+import useAppwrite from '../../lib/useAppwrite'
+import { getAllPosts } from '../../lib/appwrite'
 
 const Home = () => {
-  const [data, setData] = useState([])
+  const {data: posts, refetch} = useAppwrite(getAllPosts)
   const [refreshing, setRefreshing] = useState(false)
-  const onRefresh = () => {
+
+
+  const onRefresh = async() => {
     setRefreshing(true)
-    //await refetch()
+    await refetch()
     setRefreshing(false)
 
   }
 
-  useEffect(()=>{
-
-  })
-  
   return (
     <SafeAreaView>
       <FlatList
-        data={data}
+        data={posts}
         keyExtractor={(item)=>item.$id}
         renderItem={({item})=> (
           // <VideoCard 
@@ -63,9 +63,9 @@ const Home = () => {
             subtitle='No videos created yet'
           />
         )}
-        // refreshControl={
-        //   <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
-        // }
+        refreshControl={
+          <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
+        }
       />
     </SafeAreaView>
   )
