@@ -5,10 +5,11 @@ import {images} from '../../constants'
 import SearchField from '../../components/SearchField'
 import EmptyState from '../../components/EmptyState'
 import useAppwrite from '../../lib/useAppwrite'
-import { getAllPosts } from '../../lib/appwrite'
+import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
 
 const Home = () => {
   const {data: posts, refetch} = useAppwrite(getAllPosts)
+  const {data: latestPosts} = useAppwrite(getLatestPosts)
   const [refreshing, setRefreshing] = useState(false)
 
 
