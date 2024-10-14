@@ -1,6 +1,7 @@
 import { FlatList } from 'react-native'
 import { useState } from 'react'
 import * as Animatable from "react-native-animatable";
+import { act } from 'react';
 
 const zoomIn = {
     0: {
@@ -77,7 +78,7 @@ const Trending = ({posts}) => {
         horizontal
         keyExtractor={(item)=>item.$id}
         renderItem={(item)=> (
-            item
+            <TrendingItem activeItem={activeItem} item={item} />
         )}
         onViewableItemsChanged={viewableItemsChanged}
         viewabilityConfig={{
