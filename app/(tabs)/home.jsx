@@ -17,7 +17,6 @@ const Home = () => {
     setRefreshing(true)
     await refetch()
     setRefreshing(false)
-
   }
 
   return (
@@ -49,12 +48,12 @@ const Home = () => {
                 />
               </View>
             </View>
-            <SearchField />
+            {/* <SearchField /> */}
             <View className='w-full flex-1'>
               <Text className='text-lg font-pregular text-gray-100'>
                 Latest Videos
               </Text>
-              {/* <Trending posts={data} /> */}
+              {/* <Trending posts={latestPosts ?? []} /> */}
             </View>
           </View>
         )}

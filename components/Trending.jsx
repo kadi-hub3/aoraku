@@ -1,4 +1,4 @@
-import { View, Text, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import { useState } from 'react'
 
 const Trending = ({posts}) => {
