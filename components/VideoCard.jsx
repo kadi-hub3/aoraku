@@ -2,6 +2,7 @@ import { View, Text, Image } from 'react-native'
 import React, { useState } from 'react'
 import { ResizeMode, Video } from "expo-av";
 import { TouchableOpacity } from 'react-native';
+import { icons } from '../constants';
 
 
 const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
@@ -44,8 +45,21 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
                 }}
             />
         ) : (
-            <TouchableOpacity>
-                
+            <TouchableOpacity
+                activeOpacity={0.7}
+                onPress={()=>setPlay(true)}
+                className='w-full h-60 rounded-xl flex justify-center items-center'
+            >
+                <Image 
+                    source={{uri: thumbnail}}
+                    className='w-full h-full rounded-xl'
+                    resizeMode='contain'
+                />
+                <Image
+                    source={icons.play}
+                    className='w-12 h-12 absolute'
+                    resizeMode='contain'
+                />
             </TouchableOpacity>
         )}
     </View>
