@@ -1,6 +1,38 @@
 import { FlatList } from 'react-native'
 import { useState } from 'react'
+import * as Animatable from "react-native-animatable";
 
+const zoomIn = {
+    0: {
+        scale: 0.8
+    },
+    1: {
+        scale: 1.1
+    }
+}
+const zoomOut = {
+    0: {
+        scale: 1
+    },
+    1: {
+        scale: 0.8
+    }
+}
+
+
+const TrendingItem = ({activeItem, item}) => {
+    const [play, setPlay] = useState(false)
+
+    retrun (
+        <Animatable.View
+            animation={activeItem === item.$id? zoomIn : zoomOut}
+            duration={500}
+        >
+
+        </Animatable.View>
+    )
+
+}
 const Trending = ({posts}) => {
     const [activeItem, setActiveItem] = useState(posts[0])
 
