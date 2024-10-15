@@ -1,12 +1,13 @@
-import { View, Text, Image, ScrollView } from 'react-native'
+import { View, Text, Image, ScrollView, Alert } from 'react-native'
 import React, { useState } from 'react'
 import {Link, router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
 import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
-import { getCurrentUser, signIn, signOut } from '../../lib/appwrite'
+import { getCurrentUser, signIn } from '../../lib/appwrite'
 import { useGlobalContext } from '../../context/GlobalProvider'
+
 const SignIn = () => {
   const {setUser, setIsLogged} = useGlobalContext()
   const [isSubmitting, setSubmitting] = useState(false)
@@ -16,19 +17,19 @@ const SignIn = () => {
   })
 
   const submit = async () => {
-    if (form.username === '' || form.email === '' || form.password === ''){
-      Alert.alert('Please fill inn all the fields !')
+    if ( form.email === '' || form.password === ''){
+      Alert.alert('Please fill in all the fields !')
     }
     setSubmitting(true)
 
     try {
       await signIn(form.email, form.password);
       const result = await getCurrentUser();
-      setUser(result)
-      setIsLogged(true)
+      // setUser(result)
+      // console.log(result,'user')
+      // setIsLogged(true)
       router.replace('/home')
     } catch(error) {
-      signOut()
       Alert.alert('Error', error.message)
     } finally {
       setSubmitting(false)
