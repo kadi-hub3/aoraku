@@ -3,10 +3,19 @@ import {router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useGlobalContext } from '@/context/GlobalProvider'
 import useAppwrite from '../../lib/useAppwrite'
+import { signOut } from '@/lib/appwrite'
 
 const Profile = () => {
   const { user, setUser, setIsLogged} = useGlobalContext()
   const { data: posts} = useAppwrite(()=> getUserPosts(user.$id))
+
+  const logOut = async() => {
+    await signOut()
+    setUser(null)
+    setIsLogged(false)
+    router.replace('/sign-in')
+  }
+  
   return (
     <SafeAreaView>
       <FlatList
