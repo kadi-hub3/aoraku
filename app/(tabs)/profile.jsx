@@ -48,7 +48,7 @@ const Profile = () => {
             </View>
             {/* <InfoBox/> */}
             <View className='flex flex-row'>
-              {/* <InfoBox
+              <InfoBox
                 title={posts.length || 0}
                 subtitle='Posts'
                 titleStyles='text-xl'
@@ -57,7 +57,7 @@ const Profile = () => {
                 title='1.5k'
                 subtitle='Followers'
                 titleStyles='text-xl'
-              /> */}
+              />
             </View>
           </View>
         )}
