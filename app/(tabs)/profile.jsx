@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import { useGlobalContext } from '@/context/GlobalProvider'
 import useAppwrite from '../../lib/useAppwrite'
 import { signOut } from '@/lib/appwrite'
+import { icons } from '@/constants'
 
 const Profile = () => {
   const { user, setUser, setIsLogged} = useGlobalContext()
@@ -27,30 +28,36 @@ const Profile = () => {
           item
         )}
         ListHeaderComponent={()=>(
-          <View className='flex my-6 px-4'>
-            <View className='flex justify-center items-center'>
-              <View>
-                <Text className='font-pmedium text-gray-100'>
-                  Welcome Back
-                </Text>
-                <Text className='font-psemibold text-white'>
-                  Kadi
-                </Text>
-              </View>
-              <View className=''>
-                <Image
-                  source={images.logoSmall}
-                  className='w-9 h-9'
-                  resizeMode='contain'
-                />
-              </View>
+          <View className='flex justify-center items-centermy-6 px-4'>
+            <TouchableOpacity
+              onPress={logOut}
+              className='flex w-full items-end'
+            >
+              <Image 
+                source={icons.logout}
+                resizemode='contain'
+                className='w-6 h-6'
+              />
+            </TouchableOpacity>
+            <View className='w-16 h-16 border border-secondary rounded-lg'>
+              <Image
+                source={{uri : user?.avatar}}
+                className='w-[90%] h-[90%] rounded-lg'
+                resizeMode='cover'
+              />
             </View>
-            {/* <SearchField /> */}
-            <View className='w-full flex-1'>
-              <Text className='text-lg font-pregular text-gray-100'>
-                Latest Videos
-              </Text>
-              {/* <Trending posts={latestPosts ?? []} /> */}
+            {/* <InfoBox/> */}
+            <View className='flex flex-row'>
+              {/* <InfoBox
+                title={posts.length || 0}
+                subtitle='Posts'
+                titleStyles='text-xl'
+              />
+              <InfoBox
+                title='1.5k'
+                subtitle='Followers'
+                titleStyles='text-xl'
+              /> */}
             </View>
           </View>
         )}
