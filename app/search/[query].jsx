@@ -3,10 +3,11 @@ import { View, Text, FlatList } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import useAppwrite from '../../lib/useAppwrite'
 import { useEffect } from 'react'
+import { searchPosts } from '../../lib/appwrite'
 
 const SearchQuery = () => {
     const {query} = useLocalSearchParams()
-    //const {data: posts, refetch} = useAppwrite(()=>getCurrentUser(query))
+    const {data: posts, refetch} = useAppwrite(()=>searchPosts(query))
 
     useEffect(()=> {
         refetch()
@@ -28,7 +29,7 @@ const SearchQuery = () => {
                     Search Results                
                 </Text>
                 <Text className='font-psemibold text-white'>
-                  Kadi
+                  {query}
                 </Text>
               <View className=''>
                     {/* <SearchField /> */}
