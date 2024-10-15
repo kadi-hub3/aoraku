@@ -4,6 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import useAppwrite from '../../lib/useAppwrite'
 import { useEffect } from 'react'
 import { searchPosts } from '../../lib/appwrite'
+import { EmptyState, VideoCard, SearchField} from '../../components'
 
 const SearchQuery = () => {
     const {query} = useLocalSearchParams()
