@@ -1,9 +1,12 @@
 import { View, Text, FlatList, TouchableOpacity } from 'react-native'
 import {router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
-
+import { useGlobalContext } from '@/context/GlobalProvider'
+import useAppwrite from '../../lib/useAppwrite'
 
 const Profile = () => {
+  const { user, setUser, setIsLogged} = useGlobalContext()
+  const { data: posts} = useAppwrite(()=> getUserPosts(user.$id))
   return (
     <SafeAreaView>
       <FlatList
