@@ -1,11 +1,11 @@
 import { View, Text, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
-import {Link} from 'expo-router'
+import {Link, router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
 import FormField from '../../components/FormField'
 import CustomButton from '../../components/CustomButton'
-import { getCurrentUser, signIn } from '../../lib/appwrite'
+import { getCurrentUser, signIn, signOut } from '../../lib/appwrite'
 import { useGlobalContext } from '../../context/GlobalProvider'
 const SignIn = () => {
   const {setUser, setIsLogged} = useGlobalContext()
@@ -28,6 +28,7 @@ const SignIn = () => {
       setIsLogged(true)
       router.replace('/home')
     } catch(error) {
+      signOut()
       Alert.alert('Error', error.message)
     } finally {
       setSubmitting(false)

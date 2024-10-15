@@ -1,7 +1,6 @@
 import { FlatList } from 'react-native'
 import { useState } from 'react'
 import * as Animatable from "react-native-animatable";
-import { act } from 'react';
 
 const zoomIn = {
     0: {
