@@ -1,16 +1,15 @@
-import { View, FlatList, TouchableOpacity } from 'react-native'
+import { View, FlatList, Image, TouchableOpacity } from 'react-native'
 import {router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useGlobalContext } from '@/context/GlobalProvider'
 import useAppwrite from '../../lib/useAppwrite'
 import { signOut } from '@/lib/appwrite'
 import { icons } from '@/constants'
-import { EmptyState, VideoCard, SearchField} from '../../components'
+import { EmptyState, VideoCard, SearchField, InfoBox} from '../../components'
 
 const Profile = () => {
   const { user, setUser, setIsLogged} = useGlobalContext()
   const { data: posts} = useAppwrite(()=> getUserPosts(user.$id))
-  const [refreshing, setRefreshing] = useState(false)
 
   
   const logOut = async() => {

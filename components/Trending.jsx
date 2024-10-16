@@ -1,6 +1,8 @@
-import { FlatList } from 'react-native'
+import { FlatList, TouchableOpacity, Image } from 'react-native'
 import { useState } from 'react'
 import * as Animatable from "react-native-animatable";
+import { icons } from '@/constants';
+import { Video, ResizeMode } from 'expo-av';
 
 const zoomIn = {
     0: {
@@ -23,7 +25,7 @@ const zoomOut = {
 const TrendingItem = ({activeItem, item}) => {
     const [play, setPlay] = useState(false)
 
-    retrun (
+    return (
         <Animatable.View
             animation={activeItem === item.$id? zoomIn : zoomOut}
             duration={500}
@@ -33,7 +35,7 @@ const TrendingItem = ({activeItem, item}) => {
                 source={{uri: item.video}}
                 className='w-full h-60 rounded-xl'
                 resizeMode={ResizeMode.CONTAIN}
-                useNtiveControls
+                useNativeControls
                 shouldPlay
                 onPlaybackStatusUpdate={(status)=> {
                     if (status.didJustFinish) {

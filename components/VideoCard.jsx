@@ -35,7 +35,7 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
                 source={{uri: video}}
                 className='w-full h-60 rounded-xl'
                 resizeMode={ResizeMode.CONTAIN}
-                useNtiveControls
+                useNativeControls
                 shouldPlay
                 onPlaybackStatusUpdate={(status)=> {
                     if (status.didJustFinish) {
