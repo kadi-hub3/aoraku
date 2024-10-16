@@ -3,8 +3,7 @@ import React, { useState } from 'react'
 import {Link, router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import {images} from '../../constants'
-import FormField from '../../components/FormField'
-import CustomButton from '../../components/CustomButton'
+import {FormField, CustomButton }from '../../components'
 import { getCurrentUser, signIn } from '../../lib/appwrite'
 import { useGlobalContext } from '../../context/GlobalProvider'
 
@@ -25,9 +24,11 @@ const SignIn = () => {
     try {
       await signIn(form.email, form.password);
       const result = await getCurrentUser();
-      // setUser(result)
-      // console.log(result,'user')
-      // setIsLogged(true)
+   
+      Alert.alert("Success", "User signed in successfully");
+      setUser(result)
+      console.log(result,'user')
+      //setIsLogged(true)
       router.replace('/home')
     } catch(error) {
       Alert.alert('Error', error.message)

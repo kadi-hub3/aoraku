@@ -1,4 +1,4 @@
-import { View, Text, FlatList, TouchableOpacity } from 'react-native'
+import { View, FlatList, TouchableOpacity } from 'react-native'
 import {router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useGlobalContext } from '@/context/GlobalProvider'
@@ -10,7 +10,9 @@ import { EmptyState, VideoCard, SearchField} from '../../components'
 const Profile = () => {
   const { user, setUser, setIsLogged} = useGlobalContext()
   const { data: posts} = useAppwrite(()=> getUserPosts(user.$id))
+  const [refreshing, setRefreshing] = useState(false)
 
+  
   const logOut = async() => {
     await signOut()
     setUser(null)
@@ -24,9 +26,13 @@ const Profile = () => {
         data={posts}
         keyExtractor={(item)=>item.$id}
         renderItem={({item})=> (
-          // <VideoCard 
-          // />
-          item
+          <VideoCard
+            title={item.title}
+            thumbnail={item.thumbnail}
+            video={item.video}
+            creator={item.creator.username}
+            avatar={item.creator.avatar}
+          />
         )}
         ListHeaderComponent={()=>(
           <View className='flex justify-center items-centermy-6 px-4'>
@@ -68,9 +74,6 @@ const Profile = () => {
             subtitle='No videos found for this profile'
           />
         )}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>
-        }
       />
     </SafeAreaView>
   )
