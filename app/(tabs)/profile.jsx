@@ -5,6 +5,7 @@ import { useGlobalContext } from '@/context/GlobalProvider'
 import useAppwrite from '../../lib/useAppwrite'
 import { signOut } from '@/lib/appwrite'
 import { icons } from '@/constants'
+import { EmptyState, VideoCard, SearchField} from '../../components'
 
 const Profile = () => {
   const { user, setUser, setIsLogged} = useGlobalContext()
