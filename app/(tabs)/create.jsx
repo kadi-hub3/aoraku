@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { useGlobalContext } from '@/context/GlobalProvider'
 
@@ -12,7 +12,29 @@ const Create = () => {
     prompt: ''
   })
 
-  
+  const submit = () => {
+    if((form.prompt === '')|(form.title === '') | !form.thumbnail | !form.video) {
+      return Alert.alert('Please provide all fields')
+    }
+
+    setUploading(true)
+
+    try {
+
+    } catch (error) {
+      Alert.alert('Video Creation Error', error)
+    } finally {
+        setForm({
+          title: '',
+          video: null,
+          thumbnail: null,
+          prompt: '',
+        });
+
+        setUploading(false);
+    }
+  }
+
   return (
     <View>
       <Text>Create</Text>
