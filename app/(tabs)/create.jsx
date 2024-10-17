@@ -1,6 +1,9 @@
 import { View, Text, Alert } from 'react-native'
 import React, { useState } from 'react'
 import { useGlobalContext } from '@/context/GlobalProvider'
+import { SafeAreaView } from 'react-native-safe-area-context'
+import { ScrollView } from 'react-native-gesture-handler'
+import { FormField } from '@/components'
 
 const Create = () => {
   const {user} = useGlobalContext()
@@ -36,9 +39,20 @@ const Create = () => {
   }
 
   return (
-    <View>
-      <Text>Create</Text>
-    </View>
+    <SafeAreaView>
+      <ScrollView>
+        <Text>Upload Video</Text>
+        <FormField 
+          title='Video Title'
+          value={form.title}
+          placeholder='Give your video a catchy title...'
+          handleChangeText={(e)=>setForm({...form, title: e})}
+        />
+        <View>
+          
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   )
 }
 
