@@ -4,6 +4,7 @@ import { useGlobalContext } from '@/context/GlobalProvider'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ScrollView } from 'react-native-gesture-handler'
 import { FormField } from '@/components'
+import { createVideoPost } from '@/lib/appwrite'
 
 const Create = () => {
   const {user} = useGlobalContext()
@@ -14,8 +15,8 @@ const Create = () => {
     thumbnail: null,
     prompt: ''
   })
-
-  const submit = () => {
+ 
+  const submit = async() => {
     if((form.prompt === '')|(form.title === '') | !form.thumbnail | !form.video) {
       return Alert.alert('Please provide all fields')
     }
@@ -23,7 +24,12 @@ const Create = () => {
     setUploading(true)
 
     try {
-
+      await createVideoPost({
+        ...form,
+        userId: user.$id
+      })
+      Alert.alert("Success", "Post uploaded successfully");
+      router.push('/home')
     } catch (error) {
       Alert.alert('Video Creation Error', error)
     } finally {
@@ -39,7 +45,7 @@ const Create = () => {
   }
 
   return (
-    <SafeAreaView>
+    <SafeAreaView className='bg-primary h-full'>
       <ScrollView>
         <Text>Upload Video</Text>
         <FormField 
@@ -49,7 +55,7 @@ const Create = () => {
           handleChangeText={(e)=>setForm({...form, title: e})}
         />
         <View>
-          
+
         </View>
       </ScrollView>
     </SafeAreaView>
