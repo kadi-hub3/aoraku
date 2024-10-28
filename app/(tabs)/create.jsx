@@ -1,10 +1,12 @@
-import { View, Text, Alert } from 'react-native'
+import { View, Text, Alert, TouchableOpacity, Image } from 'react-native'
 import React, { useState } from 'react'
 import { useGlobalContext } from '@/context/GlobalProvider'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { ScrollView } from 'react-native-gesture-handler'
 import { FormField } from '@/components'
 import { createVideoPost } from '@/lib/appwrite'
+import { ResizeMode, Video } from 'expo-av'
+import { icons } from '@/constants'
 
 const Create = () => {
   const {user} = useGlobalContext()
@@ -55,7 +57,29 @@ const Create = () => {
           handleChangeText={(e)=>setForm({...form, title: e})}
         />
         <View>
-
+          <Text className='text-base text-gray-100'>
+            Upload Video
+          </Text>
+          <TouchableOpacity>
+            {form.video ? (
+              <Video
+                source={{uri: form.video.uri}}
+                className='w-full h-64 rounded-2xl'
+                useNativeControls
+                resizeMode={ResizeMode.COVER}
+                isLooping
+              />
+            ) : (
+              <View className='w-full h-40 bg-black-100'>
+                <View>
+                  <Image
+                    source={icons.upload}
+                    className='w-1/2 h-1/2'
+                  />
+                </View>
+              </View>
+            )}
+          </TouchableOpacity>
         </View>
       </ScrollView>
     </SafeAreaView>
