@@ -75,12 +75,39 @@ const Create = () => {
                   <Image
                     source={icons.upload}
                     className='w-1/2 h-1/2'
+                    resizeMode='contain'
+                    alt='upload'
                   />
                 </View>
               </View>
             )}
           </TouchableOpacity>
         </View>
+        <View>
+          <Text className='text-base text-gray-100'>
+            Thumbnail Image
+          </Text>
+          <TouchableOpacity>
+            {form.thumbnail ? (
+                <Image
+                  source={{uri: form.thumbnail.uri}}
+                  resizeMode='cover'
+                  className='w-full h-64 rounded-2xl'
+                />
+            ) : (
+                <View>
+                  <Image
+                    source={icons.upload}
+                    resizeMode='contain'
+                    alt='upload'
+                    className='w-5 h-5'
+                  />
+                  <Text>Choose a file</Text>
+                </View>
+            )}
+          </TouchableOpacity>
+        </View>
+
       </ScrollView>
     </SafeAreaView>
   )
