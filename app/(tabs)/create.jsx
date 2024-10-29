@@ -107,7 +107,20 @@ const Create = () => {
             )}
           </TouchableOpacity>
         </View>
+        <FormField
+          title="AI Prompt"
+          value={form.prompt}
+          placeholder="The AI prompt of your video...."
+          handleChangeText={(e) => setForm({ ...form, prompt: e })}
+          otherStyles="mt-7"
+        />
 
+        <CustomButton
+          title="Submit & Publish"
+          handlePress={submit}
+          containerStyles="mt-7"
+          isLoading={uploading}
+        />
       </ScrollView>
     </SafeAreaView>
   )
