@@ -7,6 +7,7 @@ import { FormField } from '@/components'
 import { createVideoPost } from '@/lib/appwrite'
 import { ResizeMode, Video } from 'expo-av'
 import { icons } from '@/constants'
+import * as DocumentPicker from "expo-document-picker";
 
 const Create = () => {
   const {user} = useGlobalContext()
@@ -19,6 +20,28 @@ const Create = () => {
   })
 
   const openPicker = async(selectType) => {
+    const result = await DocumentPicker.getDocumentAsync({
+      type:
+        selectType === "image"
+          ? ["image/png", "image/jpg"]
+          : ["video/mp4", "video/gif"],
+    });
+    
+    if (!result.canceled) {
+      if (selectType === "image") {
+        setForm({
+          ...form,
+          thumbnail: result.assets[0],
+        });
+      }
+
+      if (selectType === "video") {
+        setForm({
+          ...form,
+          video: result.assets[0],
+        });
+      }
+    } 
 
   }
  
