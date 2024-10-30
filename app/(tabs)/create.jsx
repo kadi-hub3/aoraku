@@ -26,7 +26,7 @@ const Create = () => {
           ? ["image/png", "image/jpg"]
           : ["video/mp4", "video/gif"],
     });
-    
+
     if (!result.canceled) {
       if (selectType === "image") {
         setForm({
@@ -41,6 +41,10 @@ const Create = () => {
           video: result.assets[0],
         });
       }
+    } else {
+      setTimeout(() => {
+        Alert.alert("Document picked", JSON.stringify(result, null, 2));
+      }, 100);
     } 
 
   }
