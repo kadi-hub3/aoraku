@@ -20,9 +20,13 @@ const SearchQuery = () => {
         data={posts}
         keyExtractor={(item)=>item.$id}
         renderItem={({item})=> (
-          // <VideoCard 
-          // />
-          item
+          <VideoCard
+            title={item.title}
+            thumbnail={item.thumbnail}
+            video={item.video}
+            creator={item.creator.username}
+            avatar={item.creator.avatar}
+          />
         )}
         ListHeaderComponent={()=>(
           <View className='flex my-6 px-4'>
@@ -33,8 +37,7 @@ const SearchQuery = () => {
                   {query}
                 </Text>
               <View className=''>
-                    {/* <SearchField /> */}
-
+                <SearchField initialQuery={query} refetch={refetch} />
               </View>
           </View>
         )}
