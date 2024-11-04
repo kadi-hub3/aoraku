@@ -1,13 +1,12 @@
-import { View, Text, Alert, TouchableOpacity, Image } from 'react-native'
+import { View, Text, Alert, TouchableOpacity, Image, ScrollView } from 'react-native'
 import React, { useState } from 'react'
 import { useGlobalContext } from '@/context/GlobalProvider'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { ScrollView } from 'react-native-gesture-handler'
-import { FormField } from '@/components'
+import { FormField, CustomButton } from '@/components'
 import { createVideoPost } from '@/lib/appwrite'
 import { ResizeMode, Video } from 'expo-av'
 import { icons } from '@/constants'
-import * as DocumentPicker from "expo-document-picker";
+import * as DocumentPicker from 'expo-document-picker'
 
 const Create = () => {
   const {user} = useGlobalContext()
