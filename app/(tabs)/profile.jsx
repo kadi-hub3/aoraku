@@ -3,7 +3,7 @@ import {router} from 'expo-router'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { useGlobalContext } from '@/context/GlobalProvider'
 import useAppwrite from '../../lib/useAppwrite'
-import { signOut } from '@/lib/appwrite'
+import { getUserPosts, signOut } from '@/lib/appwrite'
 import { icons } from '@/constants'
 import { EmptyState, VideoCard, SearchField, InfoBox} from '../../components'
 
