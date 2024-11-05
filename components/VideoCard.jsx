@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
-import { ResizeMode, Video } from "expo-av";
-import { icons } from '../constants';
+import { ResizeMode, Video } from 'expo-av'
+import { icons } from '../constants'
 
 
 const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
@@ -36,7 +36,7 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
                 className='w-full h-60 rounded-xl'
                 resizeMode={ResizeMode.CONTAIN}
                 useNativeControls
-                shouldPlay
+                shouldPlay={play}
                 onPlaybackStatusUpdate={(status)=> {
                     if (status.didJustFinish) {
                         setPlay(false)

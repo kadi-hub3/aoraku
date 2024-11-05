@@ -14,7 +14,8 @@
     },
     "ios": {
       "supportsTablet": true,
-      "package": "com.kadi.aoraku"
+      "package": "com.kadi.aoraku",
+      "bundleIdentifier": "com.anonymous.Aoraku"
     },
     "android": {
       "adaptiveIcon": {
@@ -31,6 +32,11 @@
     "plugins": ["expo-router"],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "eas": {
+        "projectId": "fcffb207-c8d9-49cd-805a-23a7bb5d52fa"
+      }
     }
   }
 }

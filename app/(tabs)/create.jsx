@@ -100,7 +100,7 @@ const Create = () => {
                 isLooping
               />
             ) : (
-              <View className='w-full h-40 bg-black-100 rounded-2xl flex justify-center items-center'>
+              <View className='w-full h-40 bg-black-100 rounded-2xl border-2 border-black-200 flex justify-center items-center'>
                 <View className='w-20 h-20 flex justify-center items-center'>
                   <Image
                     source={icons.upload}
