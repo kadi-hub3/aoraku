@@ -7,17 +7,17 @@ import { icons } from '../constants';
 const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
     const [play, setPlay] = useState(false)
   return (
-    <View className='flex flex-col items-center px-4'>
+    <View className='flex flex-col items-center p-2 mb-6'>
         <View className='flex flex-row gap-3 items-start'>
             <View className='flex flex-row justify-center items-center'>
                 <View className='w-[46px] h-[46px] rounded-lg border border-secondary flex justify-center items-center'>
                     <Image
                         source={{uri: avatar}}
-                        className='w-full h-fu;; rounded-lg'
-                        resizeMode='contain'
+                        className='w-full h-full rounded-lg'
+                        resizeMode='cover'
                     />
                 </View>
-                <View className='flex justify-center flex-1'>
+                <View className='flex justify-center flex-1 gap-y-2 ml-2'>
                     <Text className='font-psemibold text-sm text-white' numberOfLines={1}>
                         {title}
                     </Text>

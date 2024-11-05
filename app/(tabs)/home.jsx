@@ -33,12 +33,12 @@ const Home = () => {
         )}
         ListHeaderComponent={()=>(
           <View className='flex my-6 px-4'>
-            <View className='flex justify-center items-center'>
+            <View className='flex justify-between items-start flex-row mb-5'>
               <View>
-                <Text className='font-pmedium text-gray-100'>
+                <Text className='font-pmedium text-sm text-gray-100'>
                   Welcome Back
                 </Text>
-                <Text className='font-psemibold text-white'>
+                <Text className='font-psemibold text-xl text-white'>
                   Kadi
                 </Text>
               </View>
@@ -51,7 +51,7 @@ const Home = () => {
               </View>
             </View>
             <SearchField />
-            <View className='w-full flex-1'>
+            <View className='w-full flex-1 p-5'>
               <Text className='text-lg font-pregular text-gray-100'>
                 Latest Videos
               </Text>

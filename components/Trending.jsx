@@ -1,4 +1,4 @@
-import { FlatList, TouchableOpacity, Image } from 'react-native'
+import { FlatList, TouchableOpacity, Image, ImageBackground } from 'react-native'
 import { useState } from 'react'
 import * as Animatable from "react-native-animatable";
 import { icons } from '@/constants';
@@ -33,7 +33,7 @@ const TrendingItem = ({activeItem, item}) => {
         {play ? (
             <Video
                 source={{uri: item.video}}
-                className='w-full h-60 rounded-xl'
+                className='w-52 h-60 rounded-[33px] mt-3 bg-white/10'
                 resizeMode={ResizeMode.CONTAIN}
                 useNativeControls
                 shouldPlay
@@ -47,11 +47,11 @@ const TrendingItem = ({activeItem, item}) => {
             <TouchableOpacity
                 activeOpacity={0.7}
                 onPress={()=>setPlay(true)}
-                className='w-full h-60 rounded-xl flex justify-center items-center'
+                className='relative flex justify-center items-center'
             >
-                <Image 
+                <ImageBackground
                     source={{uri: item.thumbnail}}
-                    className='w-full h-full rounded-xl'
+                    className='w-52 h-60 rounded-[33px] mt-3 overflow-hidden'
                     resizeMode='contain'
                 />
                 <Image
