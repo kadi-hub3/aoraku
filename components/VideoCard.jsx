@@ -8,7 +8,7 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
     const [play, setPlay] = useState(false)
   return (
     <View className='flex flex-col items-center p-2 mb-6'>
-        <View className='flex flex-row gap-3 items-start'>
+        <View className='flex flex-row gap-3 items-start px-4 py-2'>
             <View className='flex flex-row justify-center items-center'>
                 <View className='w-[46px] h-[46px] rounded-lg border border-secondary flex justify-center items-center'>
                     <Image

@@ -34,7 +34,7 @@ const Profile = () => {
           />
         )}
         ListHeaderComponent={()=>(
-          <View className='flex justify-center items-centermy-6 px-4'>
+          <View className='flex justify-center items-center my-6 px-4'>
             <TouchableOpacity
               onPress={logOut}
               className='flex w-full items-end'
@@ -48,16 +48,17 @@ const Profile = () => {
             <View className='w-16 h-16 border border-secondary rounded-lg'>
               <Image
                 source={{uri : user?.avatar}}
-                className='w-[90%] h-[90%] rounded-lg'
+                className='w-full h-full rounded-lg'
                 resizeMode='cover'
               />
             </View>
             {/* <InfoBox/> */}
-            <View className='flex flex-row'>
+            <View className='flex flex-row space-x-4 mt-5'>
               <InfoBox
                 title={posts.length || 0}
                 subtitle='Posts'
                 titleStyles='text-xl'
+                containerStyles='mr-10'
               />
               <InfoBox
                 title='1.5k'
