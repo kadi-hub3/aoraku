@@ -77,17 +77,17 @@ const Create = () => {
   }
 
   return (
-    <SafeAreaView className='bg-primary h-full'>
+    <SafeAreaView className='bg-primary h-full p-4'>
       <ScrollView>
-        <Text>Upload Video</Text>
+        <Text className='text-2xl text-white font-psemibold mb-4'>Upload Video</Text>
         <FormField 
           title='Video Title'
           value={form.title}
           placeholder='Give your video a catchy title...'
           handleChangeText={(e)=>setForm({...form, title: e})}
         />
-        <View>
-          <Text className='text-base text-gray-100'>
+        <View className='my-3'>
+          <Text className='text-base text-gray-100 '>
             Upload Video
           </Text>
           <TouchableOpacity onPress={() => openPicker("video")}>
@@ -100,8 +100,8 @@ const Create = () => {
                 isLooping
               />
             ) : (
-              <View className='w-full h-40 bg-black-100'>
-                <View>
+              <View className='w-full h-40 bg-black-100 rounded-2xl flex justify-center items-center'>
+                <View className='w-20 h-20 flex justify-center items-center'>
                   <Image
                     source={icons.upload}
                     className='w-1/2 h-1/2'
@@ -125,14 +125,14 @@ const Create = () => {
                   className='w-full h-64 rounded-2xl'
                 />
             ) : (
-                <View>
+                <View className='w-full h-16 px-4 bg-black-100 rounded-2xl border-2 border-black-200 flex justify-center items-center flex-row space-x-2'>
                   <Image
                     source={icons.upload}
                     resizeMode='contain'
                     alt='upload'
                     className='w-5 h-5'
                   />
-                  <Text>Choose a file</Text>
+                  <Text className='text-sm text-white font-psemibold'>Choose a file</Text>
                 </View>
             )}
           </TouchableOpacity>
