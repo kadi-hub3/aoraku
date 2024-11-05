@@ -33,7 +33,7 @@ const TrendingItem = ({activeItem, item}) => {
         {play ? (
             <Video
                 source={{uri: item.video}}
-                className='w-52 h-60 rounded-[33px] mt-3 bg-white/10'
+                className='w-52 h-60 rounded-[33px] mt-3 bg-white '
                 resizeMode={ResizeMode.CONTAIN}
                 useNativeControls
                 shouldPlay
@@ -51,8 +51,8 @@ const TrendingItem = ({activeItem, item}) => {
             >
                 <ImageBackground
                     source={{uri: item.thumbnail}}
-                    className='w-52 h-60 rounded-[33px] mt-3 overflow-hidden'
-                    resizeMode='contain'
+                    className='w-52 h-72 rounded-[33px] mt-3 overflow-hidden shadow-lg'
+                    resizeMode='cover'
                 />
                 <Image
                     source={icons.play}
@@ -70,7 +70,7 @@ const Trending = ({posts}) => {
 
     const viewableItemsChanged = ({viewableItems}) => {
         if (viewableItems.length > 0) {
-            setActiveItem(viewableItems[0].keys)
+            setActiveItem(viewableItems[0].key)
         }
     }
   return (
