@@ -5,6 +5,7 @@ import InfoBox from "./InfoBox";
 import Trending from "./Trending";
 import SearchField from "./SearchField";
 import EmptyState from "./EmptyState";
+import MenuModal from "./MenuModal";
 
 export {
   VideoCard,
@@ -14,4 +15,5 @@ export {
   Trending,
   SearchField,
   EmptyState,
+  MenuModal
 };

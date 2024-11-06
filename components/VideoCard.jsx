@@ -2,7 +2,7 @@ import { View, Text, Image, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { ResizeMode, Video } from 'expo-av'
 import { icons } from '../constants'
-
+import {MenuModal} from '../components'
 
 const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
     const [play, setPlay] = useState(false)
@@ -12,7 +12,8 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
 
     const handleBookmark = () => {
         setMenuVisible(false);
-        console.log('Bookmarked');
+        console.log('Bookmarked', video, title);
+
     };
 
     const handleDislike = () => {
@@ -44,12 +45,14 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
                 <Image source={icons.menu} className='w-5 h-5' resizeMode='contain' />
             </TouchableOpacity>
         </View>
-        <MenuModal
+        <View>
+             <MenuModal
                 visible={menuVisible}
                 onClose={toggleMenu}
                 onBookmark={handleBookmark}
                 onDislike={handleDislike}
             />
+        </View>
         {play ? (
             <Video
                 source={{uri: video}}
