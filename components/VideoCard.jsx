@@ -6,6 +6,20 @@ import { icons } from '../constants'
 
 const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
     const [play, setPlay] = useState(false)
+    const [menuVisible, setMenuVisible] = useState(false)
+
+    const toggleMenu = () => setMenuVisible(!menuVisible);
+
+    const handleBookmark = () => {
+        setMenuVisible(false);
+        console.log('Bookmarked');
+    };
+
+    const handleDislike = () => {
+        setMenuVisible(false);
+        console.log('Disliked');
+    };
+
   return (
     <View className='flex flex-col items-center p-2 mb-6'>
         <View className='flex flex-row gap-3 items-start px-4 py-2'>
@@ -26,9 +40,9 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
                     </Text> 
                 </View>
             </View>
-            <View className='pt-2'>
+            <TouchableOpacity onPress={() => setMenuVisible(true)} className='pt-2'>
                 <Image source={icons.menu} className='w-5 h-5' resizeMode='contain' />
-            </View>
+            </TouchableOpacity>
         </View>
         {play ? (
             <Video
