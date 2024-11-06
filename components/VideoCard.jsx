@@ -44,6 +44,12 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
                 <Image source={icons.menu} className='w-5 h-5' resizeMode='contain' />
             </TouchableOpacity>
         </View>
+        <MenuModal
+                visible={menuVisible}
+                onClose={toggleMenu}
+                onBookmark={handleBookmark}
+                onDislike={handleDislike}
+            />
         {play ? (
             <Video
                 source={{uri: video}}
