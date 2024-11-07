@@ -78,7 +78,7 @@ const Trending = ({posts}) => {
         data={posts}
         horizontal
         keyExtractor={(item)=>item.$id}
-        renderItem={(item)=> (
+        renderItem={({item})=> (
             <TrendingItem activeItem={activeItem} item={item} />
         )}
         onViewableItemsChanged={viewableItemsChanged}

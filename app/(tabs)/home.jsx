@@ -5,12 +5,14 @@ import {images} from '../../constants'
 import {SearchField, EmptyState, VideoCard, Trending} from '../../components'
 import useAppwrite from '../../lib/useAppwrite'
 import { getAllPosts, getLatestPosts } from '../../lib/appwrite'
+import { useGlobalContext } from '@/context/GlobalProvider'
 
 const Home = () => {
+  const { user, setIsLogged} = useGlobalContext()
   const {data: posts, refetch} = useAppwrite(getAllPosts)
   const {data: latestPosts} = useAppwrite(getLatestPosts)
   const [refreshing, setRefreshing] = useState(false)
-
+console.log(user,'user')
   const onRefresh = async() => {
     setRefreshing(true)
     await refetch()
@@ -39,7 +41,7 @@ const Home = () => {
                   Welcome Back
                 </Text>
                 <Text className='font-psemibold text-xl text-white'>
-                  Kadi
+                  {user?.user}
                 </Text>
               </View>
               <View className=''>

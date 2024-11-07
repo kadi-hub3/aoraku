@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { ResizeMode, Video } from 'expo-av'
 import { icons } from '../constants'
 import {MenuModal} from '../components'
+import { savedVideos } from '@/lib/appwrite'
 
 const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
     const [play, setPlay] = useState(false)
@@ -13,7 +14,8 @@ const VideoCard = ({title, creator, avatar, thumbnail, video}) => {
     const handleBookmark = () => {
         setMenuVisible(false);
         console.log('Bookmarked', video, title);
-
+        const vid = {title, creator, avatar, thumbnail, video}
+        savedVideos(vid)
     };
 
     const handleDislike = () => {
