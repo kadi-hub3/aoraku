@@ -44,7 +44,7 @@ const SignUp = () => {
               className='w-[115px] h-[35px]'
             />
             <Text className='text-2xl text-white text-semibold mt-10 font-psemibold'>
-              Log in to Aora
+              Log in to Aoraku
             </Text>
             <FormField
               title='Username'
